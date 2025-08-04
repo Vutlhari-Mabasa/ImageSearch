@@ -1,4 +1,4 @@
-const accessKey = "-byo0uV3a5EGe8ZsU3HgdNgDnsfiZD8JtqxgC5-vRuo"
+const accessKey = "-byo0uV3a5EGe8ZsU3HgdNgDnsfiZD8JtqxgC5-vRuo";
 
 
 
@@ -13,8 +13,8 @@ let page = 1;
 
 
 async function searchImages() {
-    keyword = searchBox.ariaValueMax;
-    const url = 'https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}';
+    keyword = searchBox.value;
+    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}`;
 
 const response = await fetch(url);
 const data = await response.json();
@@ -25,8 +25,8 @@ results.map((result) =>{
     const image = document.createElement("img");
     image.src = result.urls.small;
     const imageLink = document.createElement("a");
-    imageLink.href = result.link.html;
-    imageLink.target = "_blank"
+    imageLink.href = result.links.html;
+    imageLink.target = "_blank";
 
     imageLink.appendChild(image);
     searchResult.appendChild(imageLink);
